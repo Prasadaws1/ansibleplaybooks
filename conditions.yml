@@ -1,0 +1,14 @@
+---
+- hosts: test
+  connection: ssh
+
+  tasks:
+    - name: install java
+      yum: name=git state=present
+      when: ansible_os_family == "RedHat"
+
+    - name: install jaba
+      apt: name=git state=present
+      when: ansible_os_family == "Ubuntu"
+
+...
