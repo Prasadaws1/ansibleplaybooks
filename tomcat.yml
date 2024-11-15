@@ -1,0 +1,28 @@
+---
+- hosts: dev
+  connection: ssh
+
+  tasks:
+    - name: install java
+      yum: name=java-1.8.0-openjdk state=present
+
+    - name: donwoled file form dlcdn
+      get_url:
+        url: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.97/bin/apache-tomcat-9.0.97.tar.gz"
+        dest: "/root"
+
+    - name: untar that file
+      command: tar -zxvf apache-tomcat-9.0.97.tar.gz
+
+    - name: copy context file from my locat server
+      copy:
+        src: "path of your context.xml file"
+        dest: "/root/apache-9.0.97/webapps/manager/META-INF/context.xml"
+
+    - name:
+      copy:
+        src: "tomcat-user.xml"
+        dest: "/root/apache-9.0.97/conf/tomcat-user.xml"
+
+    - name: start tomcat
+      shell:  nohup /root/apache-tomcat-9.0.93/bin/startup.sh
