@@ -1,0 +1,12 @@
+#######################################
+---
+- hosts: dev
+  connection: ssh
+
+  tasks:
+    - name: get code from git hub
+      git:
+        repo: "https://github.com/Prasadaws1/ansibleplaybooks.git"
+        dest: "/root/ansible-code/"
+        version: "main"
+##########################
