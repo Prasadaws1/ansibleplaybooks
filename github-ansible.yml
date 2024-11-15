@@ -6,7 +6,7 @@
   tasks:
     - name: get code from git hub
       git:
-        repo: "https://github.com/Prasadaws1/ansibleplaybooks.git"
+        repo: "https://github.com/Prasadaws1/ansibleplaybooks.git"  ####################3 give token in this place
         dest: "/root/ansible-code/"
         version: "main"
 ##########################
