@@ -1,0 +1,24 @@
+---
+- hosts: test
+  connection: ssh
+
+  tasks:
+    - name: install web server
+      yum: name=httpd state=present
+
+    - name: start the web server
+      service: name=httpd state=started
+
+    - name: create file
+      file:                                        ################################## httpd install and add data:wq
+      
+        path: "/var/www/html/index.html"
+        state: touch
+
+    - name: added data
+      copy:
+        dest: "index.html"
+        content: |
+          hi this is prasad
+
+...
