@@ -33,3 +33,36 @@
 
 ...
 ##########################################
+---
+- hosts: dev
+  connection: ssh
+                                                   ##file create
+  tasks:
+    - name: all in one
+      file:
+        path: "myfolder" 
+        state: touch
+
+---
+- hosts: dev
+  connection: ssh
+  
+  tasks:
+    - name: all in one                          ###########folder create
+      file:
+        path: "myfolder" 
+        state: directory
+...
+##################################################
+---
+- hosts: dev
+  connection: ssh
+
+  tasks:
+    - name: all in one                 ########permissiona change
+      file:
+        path: "cloud/aws"
+        mode: 777
+...
+        
+        
