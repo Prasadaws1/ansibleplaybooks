@@ -1,0 +1,21 @@
+---
+- hosts: all
+  connection: ssh
+
+  tasks:
+    - name: install java
+      command: amazon-linux-extras install java-opendjk11 -y
+
+...
+##################################
+
+---
+- hosts: all
+  connection: ssh
+
+  tasks:
+    - name: all in one
+      yum: name=git state=present
+
+...
+########################################################
