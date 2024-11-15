@@ -19,3 +19,17 @@
 
 ...
 ########################################################
+---
+- hosts: all
+  connection: ssh
+
+  tasks:
+    - name: install httpd
+      yum: name=httpd state=present
+
+
+    - name: started the httpd
+      service: name=httpd state=started
+
+...
+##########################################
