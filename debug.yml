@@ -1,0 +1,17 @@
+---
+- hosts: dev
+  connection: ssh
+
+  tasks:
+    - name: get code from git hub
+      yum: name=git state=present
+
+    - debug:
+        msg: "git version print"
+
+    - name: get git version
+      command: git -v
+      register: abc
+
+    - debug:
+        msg: "{{abc.std}}"
